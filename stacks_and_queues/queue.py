@@ -1,34 +1,54 @@
+class Node:
+
+    def __init__(self, value):
+        self.value = value
+        self.next = None
 
 
-class MyQueue:
-    def __init__(self):
-        self.queue_list = []
-        self.queue_size = 0
+class Queue:
+    def __init__(self, value):
+        new_node = Node(value)
+        self.first = new_node
+        self.last = new_node
+        self.length = 1
 
-    def is_empty(self):
-        return self.queue_size == 0
+    def PrintQ(self):
+        temp = self.first
+        while temp:
+            print(temp.value)
+            temp = temp.next
 
-    def front(self):
-        if self.is_empty():
+    def Enqueue(self, value):
+        new_node = Node(value)
+
+        if self.length == 0:
+            self.first = new_node
+            self.last = new_node
+
+        else:
+            self.last.next = new_node
+            self.last = new_node
+        self.length += 1
+
+    def Dequeue(self):
+        if self.length == 0:
             return None
-        return self.queue_list[0]
 
-    def rear(self):
-        if self.is_empty():
-            return None
-        return self.queue_list[-1]
+        temp = self.first
+        self.first = self.first.next
+        temp.next = None
 
-    def size(self):
-        return self.queue_size
+        if self.length == 0:
+            self.last = None
 
-    def enqueue(self, value):
-        self.queue_size += 1
-        self.queue_list.append(value)
+        self.length -= 1
 
-    def dequeue(self):
-        if self.is_empty():
-            return None
-        front = self.front()
-        self.queue_list.remove(self.front())
-        self.queue_size -= 1
-        return front
+        return temp.value
+
+
+# examples:
+Q = Queue(3)
+Q.Enqueue(2)
+Q.Enqueue(2)
+print(Q.Dequeue())
+Q.PrintQ()

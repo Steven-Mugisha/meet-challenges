@@ -1,15 +1,14 @@
 """
-Challenge: Implement Two Stacks Using One List
+    Challenge: Implement Two Stacks Using One List
 
-Implement the following functions to implement two stacks using a single array such that for storing elements both stacks should use the same array.
-An illustration is also provided for your understanding.
-Also, for this problem, initialize a Python list with the provided fixed size and perform all the operations in-place without growing or shrinking the list!
+    Implement the following functions to implement two stacks using a single array such that for storing elements both stacks should use the same array.
+    Also, for this problem, initialize a Python list with the provided fixed size and perform all the operations in-place without growing or shrinking the list!
 
-Prototypes:
-def push1(value): # pushes value in stack 1
-def push2(value): # pushes value in stack 2
-def pop1(): # pops an element from stack 1
-def pop2():# pops an element from stack 2
+    Prototypes:
+    def push1(value): # pushes value in stack 1
+    def push2(value): # pushes value in stack 2
+    def pop1(): # pops an element from stack 1
+    def pop2():# pops an element from stack 2
 
 """
 
