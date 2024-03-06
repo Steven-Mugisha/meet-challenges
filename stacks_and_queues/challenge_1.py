@@ -18,6 +18,31 @@
     Input: 15 - find_bin(15)
     Output: ["1", "10", "11", "100", "101", "110", "111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"]
 
+N.B feel free to write your own Stack or Queue classes or use the ones provided below
+"""
+
+# The meat:
+def find_bin(number):
+    q = MyQueue()
+    q.enqueue(1)
+    ans = []
+
+    for i in range(number):
+        ans.append(str(q.dequeue()))
+        q.enqueue(ans[i] + "0")
+        q.enqueue(ans[i] + "1")
+
+    return ans
+
+
+print(find_bin(3))
+
+"""
+    Follow up question toward mastery..!
+
+    Can you try to implement the function fin_bin(value: int) -> List[str]
+    while utilizing a queue build using a linked list. For reference look for an example under "queue.py" file.
+
 """
 
 
@@ -54,28 +79,3 @@ class MyQueue:
         self.queue_list.remove(self.front())
         self.queue_size -= 1
         return front
-
-
-# The meat:
-def find_bin(number):
-    q = MyQueue()
-    q.enqueue(1)
-    ans = []
-
-    for i in range(number):
-        ans.append(str(q.dequeue()))
-        q.enqueue(ans[i] + "0")
-        q.enqueue(ans[i] + "1")
-
-    return ans
-
-
-print(find_bin(3))
-
-"""
-    Follow up question toward mastery..!
-
-    Can you try to implement the function fin_bin(value: int) -> List[str]
-    while utilizing a queue build using a linked list. For reference look for an example under "queue.py" file.
-
-"""
